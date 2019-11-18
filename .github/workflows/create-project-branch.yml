@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug Print
-        run: echo "Object " ${{github.event}
+        run: echo "Object " ${{github.event}}
       # - name: Create branch
       #   env: 
       #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
