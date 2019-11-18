@@ -9,11 +9,19 @@ jobs:
     name: Create branch for Issue
     runs-on: ubuntu-latest
     steps:
-      - name: Debug Print
-        run: echo "Object " ${{github.event}}
-      # - name: Create branch
-      #   env: 
-      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      #   uses: peterjgrainger/action-create-branch@v1.0.0
-      #   with:
-      #     branch: 'new-test'
+      - name: Get project column name
+        id: project_column
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        uses: octokit/request-action@v1.x
+        with:
+          route: GET ${{github.event.project_card.column_url}}
+          Authorization: token ${{secrets.GITHUB_TOKEN}}
+          Accept: application/vnd.github.inertia-preview+json
+      - name: Create branch
+        if: ${{steps.project_column.outputs.data.name}} == "In progress"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          uses: peterjgrainger/action-create-branch@v1.0.0
+          with:
+            branch: ${{github.event.project_card.note_id}}
