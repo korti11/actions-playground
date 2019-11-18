@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create branch
-      uses: peterjgrainger/action-create-branch@v1.0.0
-      with:
-        branch: 'new-test'
+        uses: peterjgrainger/action-create-branch@v1.0.0
+        with:
+          branch: 'new-test'
