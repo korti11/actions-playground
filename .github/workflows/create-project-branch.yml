@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create branch
+        env: 
+          GITHUB_TOKEN: ${{secrets.TOKEN}}
         uses: peterjgrainger/action-create-branch@v1.0.0
         with:
           branch: 'new-test'
