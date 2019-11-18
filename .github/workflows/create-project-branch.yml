@@ -23,7 +23,7 @@ jobs:
         uses: gr2m/get-json-paths-action@v1.x
         with:
           json: ${{steps.project_column.outputs.data}}
-          name: "data.name"
+          name: "name"
       - run: echo ${{steps.json.outputs.name}}
       # - name: Create branch
       #   if: steps.project_column.outputs.data.name == "In progress"
