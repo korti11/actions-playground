@@ -17,7 +17,7 @@ jobs:
         with:
           route: GET ${{github.event.project_card.column_url}}
           Authorization: token ${{secrets.GITHUB_TOKEN}}
-          Accept: application/vnd.github.inertia-preview+json
+          mediaType: '{"previews": ["inertia"]}'
       - run: echo ${{steps.project_column.outputs.name}}
       # - name: Create branch
       #   if: steps.project_column.outputs.data.name == "In progress"
