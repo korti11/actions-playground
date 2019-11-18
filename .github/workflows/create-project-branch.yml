@@ -25,9 +25,10 @@ jobs:
           json: ${{steps.project_column.outputs.data}}
           name: "name"
       - name: Create branch
-        if: steps.project_column.outputs.data.name == "In progress"
+        if: steps.project_column.outputs.data.name == ${{COLUMN_NAME}}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          COLUMN_NAME: "In progress"
         uses: peterjgrainger/action-create-branch@v1.0.0
         with:
           branch: ${{github.event.project_card.note_id}}
