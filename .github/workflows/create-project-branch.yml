@@ -18,7 +18,7 @@ jobs:
           route: GET ${{github.event.project_card.column_url}}
           Authorization: token ${{secrets.GITHUB_TOKEN}}
           mediaType: '{"previews": ["inertia"]}'
-      - run: echo ${{steps.project_column.outputs.data.name}}
+      - run: echo ${{steps.project_column.outputs.data}}
       # - name: Create branch
       #   if: steps.project_column.outputs.data.name == "In progress"
       #   env:
