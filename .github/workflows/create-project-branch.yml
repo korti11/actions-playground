@@ -25,7 +25,9 @@ jobs:
           json: ${{steps.project_column.outputs.data}}
           name: "name"
       - run: echo ${{steps.json.outputs.name}}
-      - run: echo ${{'In progress'}}
+      - run: echo "$COLUMN_NAME"
+        env:
+          COLUMN_NAME: ${{'In progress'}}
       - name: Create branch
         if: steps.json.outputs.name == env.COLUMN_NAME
         env:
