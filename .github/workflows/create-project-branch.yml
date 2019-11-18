@@ -27,7 +27,7 @@ jobs:
       - run: echo ${{steps.json.outputs.name}}
       - run: echo ${{'In progress'}}
       - name: Create branch
-        if: steps.json.outputs.name == ${{'In progress'}}
+        if: steps.json.outputs.name == env.COLUMN_NAME
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           COLUMN_NAME: ${{'In progress'}}
