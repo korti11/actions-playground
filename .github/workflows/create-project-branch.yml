@@ -19,7 +19,7 @@ jobs:
           Authorization: token ${{secrets.GITHUB_TOKEN}}
           Accept: application/vnd.github.inertia-preview+json
       - name: Create branch
-        if: ${{steps.project_column.outputs.data.name}} == "In progress"
+        if: steps.project_column.outputs.data.name == "In progress"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         uses: peterjgrainger/action-create-branch@v1.0.0
