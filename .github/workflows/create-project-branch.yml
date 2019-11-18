@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Create branch
         env: 
-          GITHUB_TOKEN: ${{secrets.API_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         uses: peterjgrainger/action-create-branch@v1.0.0
         with:
           branch: 'new-test'
