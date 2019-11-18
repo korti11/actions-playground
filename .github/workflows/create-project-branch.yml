@@ -9,9 +9,11 @@ jobs:
     name: Create branch for Issue
     runs-on: ubuntu-latest
     steps:
-      - name: Create branch
-        env: 
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        uses: peterjgrainger/action-create-branch@v1.0.0
-        with:
-          branch: 'new-test'
+      - name: Debug Print
+        run: echo "Column ID " ${{github.event.project_card.column_id}}
+      # - name: Create branch
+      #   env: 
+      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      #   uses: peterjgrainger/action-create-branch@v1.0.0
+      #   with:
+      #     branch: 'new-test'
