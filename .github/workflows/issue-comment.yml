@@ -9,7 +9,7 @@ jobs:
     name: "Move project card to testing"
     runs-on: ubuntu-latest
     steps:
-      - uses: echo "$EVENT"
+      - run: echo "$EVENT"
         env:
           EVENT: ${{toJson(github.event)}}
       # - uses: alex-page/github-project-automation-plus@v0.1.1
