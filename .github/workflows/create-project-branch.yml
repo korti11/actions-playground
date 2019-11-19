@@ -18,7 +18,9 @@ jobs:
           route: GET ${{github.event.project_card.column_url}}
           Authorization: token ${{secrets.GITHUB_TOKEN}}
           mediaType: '{"previews": ["inertia"]}'
-      - run: echo "toJson(${{github.event}})"
+      - run: echo "$CONTEXT"
+        env:
+          CONTEXT: ${{toJson(github.event)}}
       - name: Parse to JSON
         id: json
         uses: gr2m/get-json-paths-action@v1.x
