@@ -6,6 +6,9 @@ on:
 
 jobs:
   event-print:
-    - run: echo "$EVENT"
-      env:
-        EVENT: ${{toJson(github.event)}}
+    name: "Event print"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$CONTEXT"
+        env:
+          CONTEXT: ${{toJson(github.event)}}
