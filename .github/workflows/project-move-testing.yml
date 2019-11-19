@@ -14,4 +14,4 @@ jobs:
         with:
           project: Test
           column: In testing
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+          repo-token: ${{secrets.GH_PAT}}
