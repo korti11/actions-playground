@@ -2,13 +2,19 @@ name: Issue Listener
 
 on:
   issue_comment:
-    types: [edited]
+    types: [labeled]
 
 jobs:
-  event-print:
-    name: "Event print"
+  move-to-testing:
+    name: "Move project card to testing"
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$CONTEXT"
+      - uses: echo "$EVENT"
         env:
-          CONTEXT: ${{toJson(github.event)}}
+          EVENT: ${{toJson(github.event)}}
+      # - uses: alex-page/github-project-automation-plus@v0.1.1
+      #   if: contains(toJson(github.event.labels))
+      #   with:
+      #     project: Test
+      #     column: Testing
+      #     repo-token: ${{secrets.GITHUB_TOKEN}}

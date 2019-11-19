@@ -6,7 +6,7 @@ on:
 
 jobs:
   create-branch:
-    name: Create branch for Issue
+    name: Create branch for issue
     runs-on: ubuntu-latest
     steps:
       - name: Get project column name
@@ -24,7 +24,6 @@ jobs:
         with:
           json: ${{steps.project_column.outputs.data}}
           name: "name"
-          rep: "repository.full_name"
       - name: Create branch
         if: steps.json.outputs.name == 'In progress'
         env:
