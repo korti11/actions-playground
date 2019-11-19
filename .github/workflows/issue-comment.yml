@@ -1,0 +1,11 @@
+name: Issue Listener
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  event-print:
+    - run: echo "$EVENT"
+      env:
+        EVENT: ${{toJson(github.event)}}
